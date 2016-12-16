@@ -1,11 +1,11 @@
 var webpack = require('webpack');
 var HTMLWebpackPlugin = require('html-webpack-plugin');
 
-// var HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
-//   template: __dirname + '/public/index.html',
-//   filename: 'index.html',
-//   inject: 'body',
-// });
+var HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
+  template: __dirname + '/app/index.html',
+  filename: 'index.html',
+  inject: 'body',
+});
 
 module.exports = {
   entry: [
@@ -13,12 +13,16 @@ module.exports = {
     __dirname + '/src/client/index.js',
   ],
   output: {
-    path: __dirname + '/public/js',
-    filename: 'bundle.js',
+    path: __dirname + '/app',
+    filename: 'js/bundle.js',
     publicPath: '/',
   },
   module: {
     loaders: [
+      {
+        test: /\.json$/,
+        loaders: ['json-loader'],
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -29,6 +33,6 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    // HTMLWebpackPluginConfig,
+    HTMLWebpackPluginConfig,
   ],
 }
