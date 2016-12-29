@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import { app } from '../../app';
-import { curriculumById, resourcesByCurriculum } from '../../store/helpers';
+import { curriculumById, curriculumOwner, curriculumTopic, resourcesByCurriculum } from '../../store/helpers';
 import { ResourceList } from '../../components/resources';
 
 const mapStateToProps = (state, ownProps) => {
@@ -10,6 +10,8 @@ const mapStateToProps = (state, ownProps) => {
   return _.assign(
     {},
     curriculum,
+    { owner: curriculumOwner(state, curriculum) },
+    { topic: curriculumTopic(state, curriculum) },
     { resources: resourcesByCurriculum(state, curriculum) }
   );
 };
@@ -20,7 +22,7 @@ const CurriculumPresenter = (props) => {
   console.log(props)
   return (
     <div className="main-container">
-      <h1>{props.title}</h1>
+      <h1>{`${props.owner.username}/${props.topic.title}`}</h1>
       <ResourceList resources={props.resources} />
     </div>
   );
