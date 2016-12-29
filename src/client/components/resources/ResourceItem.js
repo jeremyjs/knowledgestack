@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 export const ResourceItem = (resource) => (
-  <li className="curriculum-item">
+  <li className="resource-item">
     <a href={resource.url}>
       {resource.title}
     </a>

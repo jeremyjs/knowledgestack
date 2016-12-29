@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux'
 import _ from 'lodash';
-import { app } from '../../../client/app';
 import { CurriculumList } from '../../components/curriculae';
 import { topicById, curriculaeByTopicId } from '../../store/helpers';
 
@@ -13,14 +12,11 @@ const mapStateToProps = (state, ownProps) => _.assign(
 
 const mapDispatchToProps = {};
 
-const TopicPresenter = (props) => {
-  console.log(props);
-  return (
-    <div className="main-container">
-      <h1>{props.title}</h1>
-      <CurriculumList curriculae={props.curriculae} />
-    </div>
-  );
-};
+const TopicPresenter = (props) => (
+  <div className="topic-container">
+    <h1>{props.title}</h1>
+    <CurriculumList curriculae={props.curriculae} />
+  </div>
+);
 
 export const TopicView = connect(mapStateToProps, mapDispatchToProps)(TopicPresenter);

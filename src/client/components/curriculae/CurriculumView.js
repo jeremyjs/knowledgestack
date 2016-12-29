@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import { app } from '../../app';
 import { curriculumById, curriculumOwner, curriculumTopic, resourcesByCurriculum } from '../../store/helpers';
 import { ResourceList } from '../../components/resources';
 
@@ -21,7 +20,7 @@ const mapDispatchToProps = {};
 const CurriculumPresenter = (props) => {
   console.log(props)
   return (
-    <div className="main-container">
+    <div className="curriculum-container">
       <h1>{`${props.owner.username}/${props.topic.title}`}</h1>
       <ResourceList resources={props.resources} />
     </div>
