@@ -1,13 +1,13 @@
-import { createStore } from 'redux'
-import { initialState } from './initialState'
+import { createStore } from 'redux';
+import { initialState } from './initialState';
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-  case 'INCREMENT':
-    return state + 1
+  case 'ADD_TOPIC':
+    return addTopic(state, action.topic);
   default:
-    return state
+    return state;
   }
-}
+};
 
 export const store = createStore(reducer);

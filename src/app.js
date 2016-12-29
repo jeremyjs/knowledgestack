@@ -1,5 +1,3 @@
-'use strict';
-
 const path = require('path');
 const serveStatic = require('feathers').static;
 const favicon = require('serve-favicon');
@@ -17,6 +15,8 @@ const middleware = require('./middleware');
 const services = require('./services');
 const config = require('../webpack.config.js');
 
+const clientRoutes = '*';
+
 const app = feathers();
 const compiler = webpack(config);
 
@@ -33,7 +33,7 @@ app.use(compress())
   .options('*', cors())
   .use(cors())
   .use(favicon( path.join(app.get('public'), 'favicon.ico') ))
-  .use('/', serveStatic( app.get('public') ))
+  .use(clientRoutes, serveStatic( app.get('public') ))
   .use(bodyParser.json())
   .use(bodyParser.urlencoded({ extended: true }))
   .configure(hooks())

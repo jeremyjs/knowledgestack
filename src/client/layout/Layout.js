@@ -6,4 +6,4 @@ export const Layout = ({ children }) => (
   </div>
 );
 
-module.hot.accept();
+module.hot.accept('*');
