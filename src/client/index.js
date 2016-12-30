@@ -7,7 +7,7 @@ import { store } from './store'
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import { Layout } from './layout';
-import { Home } from './components/home';
+import { HomeView } from './components/home';
 import { TopicView } from './components/topics';
 import { CurriculumView } from './components/curriculae';
 
@@ -16,7 +16,7 @@ const App = () => (
     <Provider store={store}>
       <Router history={browserHistory}>
         <Route path="/" component={Layout}>
-          <IndexRoute component={Home} />
+          <IndexRoute component={HomeView} />
           <Route path="topics/:_id" component={TopicView}/>
           <Route path="curriculae/:_id" component={CurriculumView}/>
         </Route>
