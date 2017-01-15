@@ -6,7 +6,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { store } from './store'
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import { Layout } from './layout';
+import { Layout } from './components/layout';
 import { HomeView } from './components/home';
 import { TopicView } from './components/topics';
 import { CurriculumView } from './components/curriculae';
@@ -29,6 +29,8 @@ const App = () => (
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
 
-render(<App />, document.getElementById('app'));
+if (module.hot) {
+  module.hot.accept();
+}
 
-module.hot.accept();
+render(<App />, document.getElementById('app'));
