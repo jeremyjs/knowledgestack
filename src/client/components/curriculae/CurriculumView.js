@@ -17,14 +17,15 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = {};
 
-const CurriculumPresenter = (props) => {
-  console.log(props)
-  return (
-    <div className="curriculum-container">
-      <h1>{`${props.owner.username}/${props.topic.title}`}</h1>
+const CurriculumPresenter = (props) => (
+  <div className="curriculum-container">
+    <h1>{`${props.owner.username}/${props.topic.title}`}</h1>
+    {(props.resources && props.resources.length > 0) ?
       <ResourceList resources={props.resources} />
-    </div>
-  );
-};
+    :
+      <p>Curriculum is empty.</p>
+    }
+  </div>
+);
 
 export const CurriculumView = connect(mapStateToProps, mapDispatchToProps)(CurriculumPresenter);
