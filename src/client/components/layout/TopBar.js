@@ -8,7 +8,7 @@ import AppBar from 'material-ui/AppBar';
 
 export const TopBar = (props) => (
   <AppBar
-    title="Knowledgetree"
+    title={<a href="/" style={{ textDecoration: 'none', color: 'inherit' }}>Knowledgetree</a>}
     iconClassNameRight="muidocs-icon-navigation-expand-more" />
 );
 
