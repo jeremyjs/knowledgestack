@@ -11,9 +11,11 @@ const bodyParser = require('body-parser');
 const socketio = require('feathers-socketio');
 const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
+const morgan = require('morgan');
+
 const middleware = require('./middleware');
 const services = require('./services');
-const config = require('../webpack.config.js');
+const config = require('../webpack.config');
 
 const clientRoutes = '*';
 
@@ -32,6 +34,7 @@ app.configure(configuration(path.join(__dirname, '..')));
 app.use(compress())
   .options('*', cors())
   .use(cors())
+  .use(morgan('dev'))
   .use(favicon( path.join(app.get('public'), 'favicon.ico') ))
   .use(clientRoutes, serveStatic( app.get('public') ))
   .use(bodyParser.json())
