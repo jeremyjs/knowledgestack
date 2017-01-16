@@ -1,13 +1,8 @@
 const webpack = require('webpack');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
-
-const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
-  template: __dirname + '/app/index.html',
-  filename: 'index.html',
-  inject: 'body',
-});
 
 module.exports = {
+  bail: true,
+  debug: true,
   entry: [
     'webpack-hot-middleware/client',
     __dirname + '/src/client/index.js',
@@ -19,28 +14,23 @@ module.exports = {
   },
   module: {
     loaders: [
-      // {
-      //   test: /\.css$/,
-      //   loader: 'style-loader!css-loader',
-      // },
       {
         test: /\.css$/,
         loader: 'style!css',
       },
       {
         test: /\.json$/,
-        loaders: ['json-loader'],
+        loader: 'json',
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: ['babel-loader'],
+        loader: 'babel',
       },
     ],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    HTMLWebpackPluginConfig,
   ],
 }
