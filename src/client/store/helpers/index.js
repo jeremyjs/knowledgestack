@@ -1,8 +1,12 @@
+export { addResource } from './addResource';
+export { addResourceToCurriculum } from './addResourceToCurriculum';
 export { addTopic } from './addTopic';
+export { currentUser } from './currentUser';
 export { curriculaeByTopicId } from './curriculaeByTopicId';
 export { curriculumById } from './curriculumById';
 export { curriculumOwner } from './curriculumOwner';
 export { curriculumTopic } from './curriculumTopic';
 export { resourcesByTopicId } from './resourcesByTopicId';
 export { resourcesByCurriculum } from './resourcesByCurriculum';
+export { setIsAddingResource } from './setIsAddingResource';
 export { topicById } from './topicById';

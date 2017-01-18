@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 
 module.exports = {
-  bail: true,
   debug: true,
   entry: [
     'webpack-hot-middleware/client',
