@@ -31,12 +31,20 @@ app.use(require('webpack-hot-middleware')(compiler));
 
 app.configure(configuration(path.join(__dirname, '..')));
 
+const staticServer = serveStatic(app.get('public'));
+
 app.use(compress())
   .options('*', cors())
   .use(cors())
   .use(morgan('dev'))
   .use(favicon( path.join(app.get('public'), 'favicon.ico') ))
-  .use(clientRoutes, serveStatic( app.get('public') ))
+  .use(clientRoutes, (req, res, next) => {
+    if (/\/api\//.test(req.originalUrl)) {
+      next();
+    } else {
+      staticServer(req, res, next);
+    }
+  })
   .use(bodyParser.json())
   .use(bodyParser.urlencoded({ extended: true }))
   .configure(hooks())
