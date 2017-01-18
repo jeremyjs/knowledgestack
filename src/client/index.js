@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import { store } from './store'
+import { store } from './store';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import { Layout } from './components/layout';
@@ -25,12 +25,15 @@ const App = () => (
   </MuiThemeProvider>
 );
 
-// Needed for onTouchTap
-// http://stackoverflow.com/a/34015469/988941
-injectTapEventPlugin();
-
 if (module.hot) {
   module.hot.accept();
+}
+
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+if (window.injectTapEventPlugin === undefined) {
+  window.injectTapEventPlugin = injectTapEventPlugin;
+  injectTapEventPlugin();
 }
 
 render(<App />, document.getElementById('app'));
