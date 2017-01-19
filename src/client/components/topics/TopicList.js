@@ -1,10 +1,15 @@
 import React from 'react';
+import { GridList, GridTile } from 'material-ui/GridList';
 import { topicUrl } from '../../routes';
 
 export const TopicList = ({ topics }) => (
-  <ul className="topic-list">
+  <GridList className="topic-list" padding={4} cols={3} cellHeight={320}>
     {topics.map(topic => (
-      <li key={topic._id} className="topic"><a href={topicUrl(topic)}>{topic.title}</a></li>
+      <a href={topicUrl(topic)}>
+        <GridTile key={topic._id} title={topic.title} className="topic">
+          <img src={topic.imgUrl} />
+        </GridTile>
+      </a>
     ))}
-  </ul>
+  </GridList>
 );
