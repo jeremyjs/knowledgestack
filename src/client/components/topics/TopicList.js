@@ -7,8 +7,8 @@ const tileStyle = {
   transition: '.2s',
 };
 
-export const TopicList = ({ topics }) => (
-  <div className="topic-list-container">
+export const TopicList = ({ topics, style }) => (
+  <div className="topic-list-container" style={style}>
     <style>
       {`
         .topic:hover {

@@ -9,4 +9,5 @@ export { curriculumTopic } from './curriculumTopic';
 export { resourcesByTopicId } from './resourcesByTopicId';
 export { resourcesByCurriculum } from './resourcesByCurriculum';
 export { setIsAddingResource } from './setIsAddingResource';
+export { setIsAddingTopic } from './setIsAddingTopic';
 export { topicById } from './topicById';

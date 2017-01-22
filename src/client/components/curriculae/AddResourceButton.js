@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import _ from 'lodash';
-import { currentUser, curriculumById, curriculumOwner, curriculumTopic, resourcesByCurriculum } from '../../store/helpers';
 import { setIsAddingResource } from '../../store/actions';
 import RaisedButton from 'material-ui/RaisedButton';
 

@@ -4,7 +4,7 @@ import { createResource } from '../../api/resources';
 import { addResourceToCurriculum, setIsAddingResource } from '../../store/actions';
 import { TextField, RaisedButton } from 'material-ui';
 
-const style = {
+const fieldStyle = {
   marginRight: '20px',
 };
 
@@ -26,7 +26,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     };
 
     const { curriculumId } = ownProps;
-    console.log('curriculumId:', curriculumId);
 
     createResource(resource).then(resourceId => {
       dispatch(addResourceToCurriculum({ curriculumId, resourceId }));
@@ -42,8 +41,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
 export const NewResourceItemPresenter = (props) => (
   <form id="new-resource-item" className="new-resource-item" onSubmit={props.onSubmit}>
-    <TextField name="title" id="new-resource-title" hintText="Some Website" floatingLabelText="Title" style={style} />
-    <TextField name="url" id="new-resource-url" hintText="http://somewebsite.com/path" floatingLabelText="Url" style={style} />
+    <TextField name="title" id="new-resource-title" hintText="Some Website" floatingLabelText="Title" style={fieldStyle} />
+    <TextField name="url" id="new-resource-url" hintText="http://somewebsite.com/path" floatingLabelText="Url" style={fieldStyle} />
     <RaisedButton type="submit" label="Add" primary={true} style={{ marginRight: '20px' }} />
     <RaisedButton label="Cancel" onClick={props.onCancel} />
   </form>

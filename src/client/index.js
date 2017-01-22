@@ -8,7 +8,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import { Layout } from './components/layout';
 import { HomeView } from './components/home';
-import { TopicView } from './components/topics';
+import { NewTopicView, TopicView } from './components/topics';
 import { CurriculumView } from './components/curriculae';
 
 const App = () => (
@@ -17,8 +17,9 @@ const App = () => (
       <Router history={browserHistory}>
         <Route path="/" component={Layout}>
           <IndexRoute component={HomeView} />
-          <Route path="topics/:_id" component={TopicView}/>
-          <Route path="curriculae/:_id" component={CurriculumView}/>
+          <Route path="topics/new" component={NewTopicView} />
+          <Route path="topics/:_id" component={TopicView} />
+          <Route path="curriculae/:_id" component={CurriculumView} />
         </Route>
       </Router>
     </Provider>

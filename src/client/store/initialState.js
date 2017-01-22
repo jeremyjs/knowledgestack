@@ -1,4 +1,5 @@
 export const initialState = {
+  homeView: { isAddingTopic: false },
   currentCurriculum: { isAddingResource: false },
   currentUserId: '0',
   users: [
@@ -16,10 +17,30 @@ export const initialState = {
     { _id: '3', title: 'Rationality', imgUrl: 'http://crucialconsiderations.org/wp-content/uploads/2015/06/bayes3x2.jpg' },
   ],
   curriculae: [
-    { _id: '4', title: 'Basic Chemistry', subtitle: 'For Grade Schoolers', ownerId: '0', topicId: '1', rating: 5, resourceIds: ['11', '12'] },
-    { _id: '5', title: 'Organic Chemistry', subtitle: 'For Professional Chemists', ownerId: '0', topicId: '1', rating: 3, resourceIds: [] },
-    { _id: '6', title: '', ownerId: '0', topicId: '2', rating: 5, resourceIds: ['13'] },
-    { _id: '7', title: '', ownerId: '0', topicId: '2', rating: 4, resourceIds: [] },
+    {
+      _id: '4',
+      title: 'Basic Chemistry',
+      subtitle: 'For Grade Schoolers', ownerId: '0', topicId: '1', rating: 5, resourceIds: ['11', '12'] },
+    {
+      _id: '5',
+      title: 'Organic Chemistry',
+      subtitle: 'For Professional Chemists', ownerId: '0', topicId: '1', rating: 3, resourceIds: [] },
+    {
+      _id: '6',
+      title: '',
+      ownerId: '0',
+      topicId: '2',
+      rating: 5,
+      resourceIds: ['13']
+    },
+    {
+      _id: '7',
+      title: '',
+      ownerId: '0',
+      topicId: '2',
+      rating: 4,
+      resourceIds: []
+    },
     {
       _id: '8',
       title: 'Introduction to Rationality',

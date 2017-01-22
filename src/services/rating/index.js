@@ -9,17 +9,13 @@ module.exports = function() {
 
   const options = {
     Model: rating,
-    paginate: {
-      default: 5,
-      max: 25
-    }
   };
 
   // Initialize our service with any options it requires
-  app.use('/ratings', service(options));
+  app.use('/api/ratings', service(options));
 
   // Get our initialize service to that we can bind hooks
-  const ratingService = app.service('/ratings');
+  const ratingService = app.service('/api/ratings');
 
   // Set up our before hooks
   ratingService.before(hooks.before);

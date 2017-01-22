@@ -9,17 +9,13 @@ module.exports = function() {
 
   const options = {
     Model: curriculum,
-    paginate: {
-      default: 5,
-      max: 25
-    }
   };
 
   // Initialize our service with any options it requires
-  app.use('/curriculums', service(options));
+  app.use('/api/curriculums', service(options));
 
   // Get our initialize service to that we can bind hooks
-  const curriculumService = app.service('/curriculums');
+  const curriculumService = app.service('/api/curriculums');
 
   // Set up our before hooks
   curriculumService.before(hooks.before);
