@@ -21,6 +21,13 @@ const CurriculumItemPresenter = (curriculum) => {
 console.log(curriculum)
   return (
   <a href={curriculumUrl(curriculum)} style={linkStyle}>
+    <style>
+      {`
+        .curriculum-item:hover {
+          box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px 2px !important;
+        }
+      `}
+    </style>
     <Card key={curriculum._id} className="curriculum-item">
       <CardHeader
         title={curriculum.title}
