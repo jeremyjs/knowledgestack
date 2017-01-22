@@ -20,9 +20,15 @@ export const initialState = {
     { _id: '5', title: 'Organic Chemistry', subtitle: 'For Professional Chemists', ownerId: '0', topicId: '1', rating: 3, resourceIds: [] },
     { _id: '6', title: '', ownerId: '0', topicId: '2', rating: 5, resourceIds: ['13'] },
     { _id: '7', title: '', ownerId: '0', topicId: '2', rating: 4, resourceIds: [] },
-    { _id: '8', title: '', ownerId: '0', topicId: '3', rating: 5, resourceIds: [] },
-    { _id: '9', title: '', ownerId: '0', topicId: '3', rating: 4, resourceIds: [] },
-    { _id: '10', title: '', ownerId: '0', topicId: '3', rating: 3, resourceIds: [] },
+    {
+      _id: '8',
+      title: 'Introduction to Rationality',
+      description: 'A basic course in becoming more rational. Starts with some low hanging fruit you can implement in your daily life. Then gives you the foundations you need to learn the rest on your own. Other courses claim you need to get worse before you get better. This one avoids that approach.',
+      ownerId: '0',
+      topicId: '3',
+      rating: 5,
+      resourceIds: [],
+    },
   ],
   resources: [
     { _id: '11', title: 'Khan Academy - Chemistry', url: 'https://www.khanacademy.org/science/chemistry' },

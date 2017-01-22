@@ -1,22 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
-import md5 from 'js-md5';
 import { curriculumUrl } from '../../routes';
 import { curriculumOwner } from '../../store/helpers';
+import { gravatarUrl } from '../../../../src/helpers';
 
 const fullName = (profile) => `${profile.givenName} ${profile.familyName}`;
-
-const gravatarHash = (emailAddress) => md5(emailAddress.trim().toLowerCase());
-
-const gravatarUrl = (profile, size) => {
-  const hash = gravatarHash(profile.emailAddress)
-  return `https://www.gravatar.com/avatar/${hash}?s=${size}`;
-};
 
 const linkStyle = {
   display: 'block',
   marginBottom: '20px',
+  textDecoration: 'none',
 };
 
 const mapStateToProps = (state, ownProps) => ({
@@ -35,6 +29,7 @@ console.log(curriculum)
       />
       <CardText>
         {curriculum.description}
+        <br/>
         <br/>
         {`${curriculum.rating} / 5`}
       </CardText>
