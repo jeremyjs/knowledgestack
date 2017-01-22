@@ -33,13 +33,19 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
       dispatch(setIsAddingResource(false));
     });
   },
+
+  onCancel: (e) => {
+    e.preventDefault();
+    dispatch(setIsAddingResource(false));
+  },
 });
 
 export const NewResourceItemPresenter = (props) => (
   <form id="new-resource-item" className="new-resource-item" onSubmit={props.onSubmit}>
-    <TextField name="title" id="new-resource-title" hintText="Some Website" floatingLabelText="Title" style={style}/>
-    <TextField name="url" id="new-resource-url" hintText="http://somewebsite.com/path" floatingLabelText="Url" style={style}/>
-    <RaisedButton type="submit" label="Add" primary={true} />
+    <TextField name="title" id="new-resource-title" hintText="Some Website" floatingLabelText="Title" style={style} />
+    <TextField name="url" id="new-resource-url" hintText="http://somewebsite.com/path" floatingLabelText="Url" style={style} />
+    <RaisedButton type="submit" label="Add" primary={true} style={{ marginRight: '20px' }} />
+    <RaisedButton label="Cancel" onClick={props.onCancel} />
   </form>
 );
 
