@@ -1,16 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
-// import _ from 'lodash';
 import { createTopic } from '../../api/topics';
-import { topicById, curriculaeByTopicId } from '../../store/helpers';
-import { CurriculumList } from '../../components/curriculae';
 import { Breadcrumbs } from '../../components/layout'
 import { TextField, RaisedButton } from 'material-ui';
-
-// const style = {
-//   width: '50%',
-//   margin: '0 auto',
-// };
 
 const buttonStyle = {
   marginTop: '30px',

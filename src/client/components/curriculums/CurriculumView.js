@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 import { currentUser, curriculumById, curriculumOwner, curriculumTopic, resourcesByCurriculum } from '../../store/helpers';
 import { ResourceList } from '../../components/resources';
-import { AddResourceButton, NewResourceItem } from '../../components/curriculae';
+import { AddResourceButton, NewResourceItem } from '../../components/curriculums';
 import { gravatarUrl } from '../../../helpers';
 import { Breadcrumbs, rootCrumb } from '../../components/layout';
 import { topicUrl } from '../../routes';

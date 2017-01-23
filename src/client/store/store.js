@@ -1,8 +1,8 @@
 import { compose, createStore } from 'redux';
 import persistState from 'redux-localstorage';
 import { initialState } from './initialState';
-import { addResource, addResourceToCurriculum, addTopic, setIsAddingResource, setIsAddingTopic } from './helpers';
-import { ADD_RESOURCE, ADD_RESOURCE_TO_CURRICULUM, ADD_TOPIC, SET_IS_ADDING_RESOURCE, SET_IS_ADDING_TOPIC } from './actions';
+import { addCurriculum, addResource, addResourceToCurriculum, addTopic, setAddingCurriculumTopicId, setIsAddingResource, setIsAddingTopic } from './helpers';
+import { ADD_CURRICULUM, ADD_RESOURCE, ADD_RESOURCE_TO_CURRICULUM, ADD_TOPIC, SET_ADDING_CURRICULUM_TOPIC_ID, SET_IS_ADDING_RESOURCE, SET_IS_ADDING_TOPIC } from './actions';
 import { subscribeToServices } from './subscribeToServices';
 
 const enhancer = compose(
@@ -13,6 +13,9 @@ const enhancer = compose(
 const reducer = (state, action) => {
   console.log('action, state:', action, state);
   switch (action.type) {
+  case ADD_CURRICULUM:
+    return addCurriculum(state, action.payload);
+
   case ADD_RESOURCE:
     return addResource(state, action.payload);
 
@@ -21,6 +24,9 @@ const reducer = (state, action) => {
 
   case ADD_TOPIC:
     return addTopic(state, action.payload);
+
+  case SET_ADDING_CURRICULUM_TOPIC_ID:
+    return setAddingCurriculumTopicId(state, action.payload);
 
   case SET_IS_ADDING_RESOURCE:
     return setIsAddingResource(state, action.payload);

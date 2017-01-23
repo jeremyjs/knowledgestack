@@ -9,11 +9,11 @@ const addResourceIdToCurriculum = (state, curriculumId, resourceId) => {
   console.log('state:', state);
   console.log('curriculumId:', curriculumId);
   console.log('resourceId:', resourceId);
-  // mutates state.curriculae
-  const curriculum = _.first(_.remove(state.curriculae, { _id: curriculumId }));
+  // mutates state.curriculums
+  const curriculum = _.first(_.remove(state.curriculums, { _id: curriculumId }));
   console.log('curriculum:', curriculum);
   const newCurriculum = _.assign({}, curriculum, { resourceIds: [...curriculum.resourceIds, resourceId] });
-  return _.assign({}, state, { curriculae: [ ...state.curriculae, newCurriculum ] });
+  return _.assign({}, state, { curriculums: [ ...state.curriculums, newCurriculum ] });
 };
 
 export const addResourceToCurriculum = (state, resourceOrId, curriculumId) => {

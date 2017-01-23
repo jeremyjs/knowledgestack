@@ -9,7 +9,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import { Layout } from './components/layout';
 import { HomeView } from './components/home';
 import { NewTopicView, TopicView } from './components/topics';
-import { CurriculumView } from './components/curriculae';
+import { CurriculumView, NewCurriculumView } from './components/curriculums';
 
 const App = () => (
   <MuiThemeProvider>
@@ -19,7 +19,8 @@ const App = () => (
           <IndexRoute component={HomeView} />
           <Route path="topics/new" component={NewTopicView} />
           <Route path="topics/:_id" component={TopicView} />
-          <Route path="curriculae/:_id" component={CurriculumView} />
+          <Route path="curriculums/new" component={NewCurriculumView} />
+          <Route path="curriculums/:_id" component={CurriculumView} />
         </Route>
       </Router>
     </Provider>

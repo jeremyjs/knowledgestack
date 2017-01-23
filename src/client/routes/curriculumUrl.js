@@ -1,1 +1,1 @@
-export const curriculumUrl = (curriculum) => `/curriculae/${curriculum._id}`;
+export const curriculumUrl = (curriculum) => `/curriculums/${curriculum._id}`;

@@ -1,9 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import _ from 'lodash';
-import { topicById, curriculaeByTopicId } from '../../store/helpers';
-import { CurriculumList } from '../../components/curriculae';
+import { topicById, curriculumsByTopicId } from '../../store/helpers';
+import { setAddingCurriculumTopicId } from '../../store/actions';
+import { CurriculumList } from '../../components/curriculums';
 import { Breadcrumbs } from '../../components/layout'
+import RaisedButton from 'material-ui/RaisedButton';
 
 const style = {
   width: '50%',
@@ -15,18 +17,28 @@ const mapStateToProps = (state, ownProps) => {
   return _.assign(
     {},
     topic,
-    { curriculae: curriculaeByTopicId(state, ownProps.params._id) },
+    { curriculums: curriculumsByTopicId(state, ownProps.params._id) },
     { crumbs: [ { title: 'Topics', linkUrl: '/' }, { title: topic.title } ] }
   );
 };
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  onAddCurriculum: () => {
+    console.log(ownProps)
+    dispatch(setAddingCurriculumTopicId(ownProps.params._id));
+    ownProps.router.push('/curriculums/new');
+  },
+});
 
 const TopicPresenter = (props) => (
   <div className="topic-container" style={style}>
     <Breadcrumbs crumbs={props.crumbs} />
-    <h1>{props.title} Curriculae</h1>
-    <CurriculumList curriculae={props.curriculae} />
+
+    <h1>{props.title} Curriculums</h1>
+
+    <CurriculumList curriculums={props.curriculums} />
+
+    <RaisedButton className="add-curriculum-button" label="Add Curriculum" primary={true} onClick={props.onAddCurriculum} />
   </div>
 );
 

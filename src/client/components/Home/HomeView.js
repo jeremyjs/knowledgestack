@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import { TopicList } from '../topics';
-// import { AddTopicButton } from '../../components/home';
 import RaisedButton from 'material-ui/RaisedButton';
 
 const mapStateToProps = (state, ownProps) => _.pick(state, 'topics');
+
 const mapDispatchToProps = null;
 
 const HomePresenter = (props) => (

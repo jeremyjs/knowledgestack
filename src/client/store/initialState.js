@@ -1,6 +1,7 @@
 export const initialState = {
   homeView: { isAddingTopic: false },
   currentCurriculum: { isAddingResource: false },
+  newCurriculum: { topicId: undefined },
   currentUserId: '0',
   users: [
     {
@@ -16,30 +17,42 @@ export const initialState = {
     { _id: '2', title: 'Mathematics', imgUrl: 'http://www.basicknowledge101.com/photos/2016/mathchalkboard.jpg' },
     { _id: '3', title: 'Rationality', imgUrl: 'http://crucialconsiderations.org/wp-content/uploads/2015/06/bayes3x2.jpg' },
   ],
-  curriculae: [
+  curriculums: [
     {
       _id: '4',
       title: 'Basic Chemistry',
-      subtitle: 'For Grade Schoolers', ownerId: '0', topicId: '1', rating: 5, resourceIds: ['11', '12'] },
+      description: '',
+      ownerId: '0',
+      topicId: '1',
+      rating: 5,
+      resourceIds: ['11', '12'],
+    },
     {
       _id: '5',
       title: 'Organic Chemistry',
-      subtitle: 'For Professional Chemists', ownerId: '0', topicId: '1', rating: 3, resourceIds: [] },
+      description: '',
+      ownerId: '0',
+      topicId: '1',
+      rating: 3,
+      resourceIds: [],
+    },
     {
       _id: '6',
       title: '',
+      description: '',
       ownerId: '0',
       topicId: '2',
       rating: 5,
-      resourceIds: ['13']
+      resourceIds: ['13'],
     },
     {
       _id: '7',
       title: '',
+      description: '',
       ownerId: '0',
       topicId: '2',
       rating: 4,
-      resourceIds: []
+      resourceIds: [],
     },
     {
       _id: '8',
